@@ -23,5 +23,23 @@ namespace Demo.Tests.Website
             PageObjectNavigation.ClickCartElement();
         }
 
+        [Test]
+        public void TestShopForMensItem()
+        {
+            var ShoppingItemDetails = new ShoppingItemDetails
+            {
+                Gender = "LADIES",
+                Item = "BLACK LUX GRAPHIC T-SHIRT",
+                Color = "Black",
+                Size = "32"
+            };
+
+            PageObjectShoppingMain.ClickShoppingItem(
+                ShoppingItemDetails.Gender, 
+                ShoppingItemDetails.Item);
+            PageObjectShoppingItem.SelectShoppingItem(
+                ShoppingItemDetails);
+            PageObjectNavigation.ClickCartElement();
+        }
     }
 }
