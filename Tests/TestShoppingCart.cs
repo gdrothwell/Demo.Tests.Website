@@ -2,8 +2,12 @@
 
 namespace Demo.Tests.Website
 {
+    [TestFixture("firefox")]
+    [TestFixture("chrome")]
     public class TestShoppingCart : TestSetupTeardown
     {
+        public TestShoppingCart(string browser) : base(browser) {} 
+
         [Test]
         public void TestShopForLadiesItem()
         {
