@@ -7,9 +7,6 @@ namespace Demo.Tests.Website
     public static class PageObjectShoppingItem
     {
         private static IWebDriver driver => TestSetupTeardown.Driver;
-        private static WebDriverWait wait => new WebDriverWait(
-            driver, 
-            TimeSpan.FromSeconds(15));
 
         private static IWebElement optionColor => driver.FindElement(
             By.Id("pa_color"));
@@ -23,6 +20,11 @@ namespace Demo.Tests.Website
 
         public static void SelectShoppingItem(ShoppingItemDetails shoppingItemDetails)
         {
+            var wait = new WebDriverWait(
+            driver, 
+            TimeSpan.FromSeconds(15));
+            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+
             wait.Until(x => optionColor.Displayed == true);
 
             selectColor.SelectByText(shoppingItemDetails.Color);

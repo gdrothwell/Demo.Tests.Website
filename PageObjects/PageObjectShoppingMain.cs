@@ -1,16 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace Demo.Tests.Website
 {
     public static class PageObjectShoppingMain
     {
         private static IWebDriver driver => TestSetupTeardown.Driver;
-        private static WebDriverWait wait => new WebDriverWait(
-            driver, 
-            TimeSpan.FromSeconds(15));
 
         private static IWebElement selectGender(string gender) => driver.FindElements(
             By.TagName("span"))

@@ -9,7 +9,7 @@ namespace Demo.Tests.Website
         public TestShoppingCart(string browser) : base(browser) {} 
 
         [Test]
-        public void TestShopForLadiesItem()
+        public void TestShopForTShirt1()
         {
             var ShoppingItemDetails = new ShoppingItemDetails 
             {
@@ -28,7 +28,7 @@ namespace Demo.Tests.Website
         }
 
         [Test]
-        public void TestShopForMensItem()
+        public void TestShopForTShirt2()
         {
             var ShoppingItemDetails = new ShoppingItemDetails
             {
