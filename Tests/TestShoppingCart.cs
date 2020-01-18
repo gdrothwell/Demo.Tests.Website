@@ -8,34 +8,16 @@ namespace Demo.Tests.Website
     {
         public TestShoppingCart(string browser) : base(browser) {} 
 
-        [Test]
-        public void TestShopForTShirt1()
+        [TestCase("PINK DROP SHOULDER OVERSIZED T SHIRT", "Pink", "36")]
+        [TestCase("BLACK LUX GRAPHIC T-SHIRT", "Black", "32")]
+        public void TestShopForTShirtLadies(string item, string color, string size)
         {
             var ShoppingItemDetails = new ShoppingItemDetails 
             {
                 Gender = "LADIES",
-                Item = "PINK DROP SHOULDER OVERSIZED T SHIRT",
-                Color = "Pink", 
-                Size = "36" 
-            };
-
-            PageObjectShoppingMain.ClickShoppingItem(
-                ShoppingItemDetails.Gender, 
-                ShoppingItemDetails.Item);
-            PageObjectShoppingItem.SelectShoppingItem(
-                ShoppingItemDetails);
-            PageObjectNavigation.ClickCartElement();
-        }
-
-        [Test]
-        public void TestShopForTShirt2()
-        {
-            var ShoppingItemDetails = new ShoppingItemDetails
-            {
-                Gender = "LADIES",
-                Item = "BLACK LUX GRAPHIC T-SHIRT",
-                Color = "Black",
-                Size = "32"
+                Item = item,
+                Color = color, 
+                Size = size 
             };
 
             PageObjectShoppingMain.ClickShoppingItem(
