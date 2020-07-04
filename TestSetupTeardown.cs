@@ -33,10 +33,16 @@ namespace Demo.Tests.Website
             switch (browser)
             {
                 case "firefox":
-                    driver = new FirefoxDriver();
+                    var ffoptions = new FirefoxOptions();
+                    ffoptions.AddArgument("-headless");
+                    driver = new FirefoxDriver(ffoptions);
                     break;
+
                 case "chrome":
-                    driver = new ChromeDriver();
+                    var coptions = new ChromeOptions();
+                    coptions.AddArgument("--headless");
+                    coptions.AddArgument("--window-size=1280,1696");
+                    driver = new ChromeDriver(coptions);
                     break;
             }
 
