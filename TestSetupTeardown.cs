@@ -1,7 +1,9 @@
+using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
 
 namespace Demo.Tests.Website
 {
@@ -35,18 +37,21 @@ namespace Demo.Tests.Website
                 case "firefox":
                     var ffoptions = new FirefoxOptions();
                     ffoptions.AddArgument("-headless");
-                    driver = new FirefoxDriver(ffoptions);
+                    
+                    driver = new RemoteWebDriver(new Uri("http://172.18.0.2:4444/wd/hub"), ffoptions);
+
+                    driver.Manage().Window.FullScreen();
                     break;
 
                 case "chrome":
                     var coptions = new ChromeOptions();
                     coptions.AddArgument("--headless");
                     coptions.AddArgument("--window-size=1280,1696");
-                    driver = new ChromeDriver(coptions);
+
+                    driver = new RemoteWebDriver(new Uri("http://172.18.0.2:4444/wd/hub"), coptions);
                     break;
             }
 
-            driver.Manage().Window.FullScreen();
             driver.Navigate().GoToUrl("http://shop.demoqa.com/");
         }
 
